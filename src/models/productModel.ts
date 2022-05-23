@@ -13,6 +13,20 @@ class ProductModel {
     
     return rows as Products[];
   }
+
+  static async create(name: string, amount: string) {
+    const [rows] = await connection.execute(
+      'INSERT INTO Trybesmith.Products (name, amount) VALUES (?, ?)',
+      [name, amount],
+    );
+    const id = (rows as { insertId: number }).insertId;
+    
+    return {
+      name,
+      amount,
+      id,
+    };
+  }
 }
 
 export default ProductModel;
