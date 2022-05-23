@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 
-class CreatValidations {
+class ProductValidations {
   static async validateName(req: Request, res: Response, next: NextFunction) {
     const { name } = req.body;
     if (!name) {
@@ -38,4 +38,4 @@ class CreatValidations {
   }
 }
 
-export default CreatValidations;
+export default ProductValidations;
