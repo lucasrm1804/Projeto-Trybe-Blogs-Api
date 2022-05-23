@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import OrdersController from '../controllers/ordersControllers';
 import ProductControllers from '../controllers/productControllers';
 import UserControllers from '../controllers/userControllers';
 import ProductValidations from '../middleware/productValidations';
@@ -22,5 +23,7 @@ routes.post(
   UserValidations.validatePassword,
   UserControllers.create,
 );
+
+routes.get('/orders', OrdersController.getAll);
 
 export default routes;
